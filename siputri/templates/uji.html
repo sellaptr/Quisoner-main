@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+  <h1>Normalitas = {{normalitas}}</h1>
+    <h1>Hasil Uji Multikol</h1>
+    <div>
+      {{ multikol | safe }}
+    </div>
+
+    <div>
+      <img src="data:image/png;base64,{{ hetero }}" alt="Heteroskedastisitas Plot">
+    </div>
+  <h1>Korelasi = {{korelasi}}</h1>
+
+  <h1>Hasil Uji T</h1>
+  <ul>
+    {% for result in t_result %}
+      <li>{{ result }}</li>
+    {% endfor %}
+  </ul>
+
+  <h1>Hasil Uji Regresi</h1>
+  <p>Intercept: {{ regresi.intercept }}</p>
+  <ul>
+    {% for bebas, koef in regresi.koefisien %}
+      <li>{{ bebas }}: {{ koef }}</li>
+    {% endfor %}
+  </ul>
+  <h1>{{ pesan }}</h1>
+  <h1>K akhir = {{ penerimaan }}</h1>
+</div>
+</body>
+</html>
